@@ -23,7 +23,7 @@ class _SignupPageState extends State<SignupPage> {
                       children: <Widget>[
                         Container(
                           child: Image(
-                            image: AssetImage('ssets/icons/logo.png'),
+                            image: AssetImage('assets/icons/logo.png'),
                             width: width * 0.3,
                           ),
                         ),
