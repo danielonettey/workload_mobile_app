@@ -12,6 +12,9 @@ class _SignupPageState extends State<SignupPage> {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     TextEditingController fullname = TextEditingController();
+    TextEditingController email = TextEditingController();
+    TextEditingController password1 = TextEditingController();
+    TextEditingController password2 = TextEditingController();
 
 
     return Scaffold(
@@ -56,7 +59,7 @@ class _SignupPageState extends State<SignupPage> {
                     padding: EdgeInsets.only(top: 10.0)
                   ),
                   Container(
-                    width: width * 0.9,
+                    width: width * 0.8,
                     padding: EdgeInsets.only(top:60.0),
                     child: TextField(
                       controller: fullname,
@@ -70,10 +73,10 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                   ),
                   Container(
-                    width: width * 0.9,
+                    width: width * 0.8,
                     padding: EdgeInsets.only(top:20.0),
                     child: TextField(
-                      controller: fullname,
+                      controller: email,
                       decoration: InputDecoration(
                       labelText: 'Email',
                       hintText: 'eg. kofiosei@gmail.com',
@@ -84,10 +87,10 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                   ),
                   Container(
-                    width: width * 0.9,
+                    width: width * 0.8,
                     padding: EdgeInsets.only(top:20.0),
                     child: TextField(
-                      controller: fullname,
+                      controller: password1,
                       decoration: InputDecoration(
                       labelText: 'Password',
                       hintText: 'eg. Kofi Osei',
@@ -98,10 +101,10 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                   ),
                   Container(
-                    width: width * 0.9,
+                    width: width * 0.8,
                     padding: EdgeInsets.only(top:20.0, bottom: 40.0),
                     child: TextField(
-                      controller: fullname,
+                      controller: password2,
                       decoration: InputDecoration(
                       labelText: 'Confirm Password',
                       hintText: 'eg. Kofi Osei',
@@ -139,7 +142,8 @@ class _SignupPageState extends State<SignupPage> {
                           'Continue',
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: width * 0.04
+                              fontSize: width * 0.04,
+                              fontWeight: FontWeight.bold
                           ),
                         ),
                       ),
