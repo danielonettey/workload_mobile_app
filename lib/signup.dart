@@ -11,6 +11,8 @@ class _SignupPageState extends State<SignupPage> {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
+
+    //Text field controllers
     TextEditingController fullname = TextEditingController();
     TextEditingController email = TextEditingController();
     TextEditingController password1 = TextEditingController();
@@ -58,68 +60,16 @@ class _SignupPageState extends State<SignupPage> {
                     child: Text('Fill the details & create your account'),
                     padding: EdgeInsets.only(top: 10.0)
                   ),
-                  Container(
-                    width: width * 0.8,
-                    padding: EdgeInsets.only(top:60.0),
-                    child: TextField(
-                      controller: fullname,
-                      decoration: InputDecoration(
-                      labelText: 'Full Name',
-                      hintText: 'eg. Kofi Osei',
-                      border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0))
-                    ),
-                      keyboardType: TextInputType.text,
-                    ),
-                  ),
-                  Container(
-                    width: width * 0.8,
-                    padding: EdgeInsets.only(top:20.0),
-                    child: TextField(
-                      controller: email,
-                      decoration: InputDecoration(
-                      labelText: 'Email',
-                      hintText: 'eg. kofiosei@gmail.com',
-                      border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0))
-                    ),
-                      keyboardType: TextInputType.text,
-                    ),
-                  ),
-                  Container(
-                    width: width * 0.8,
-                    padding: EdgeInsets.only(top:20.0),
-                    child: TextField(
-                      controller: password1,
-                      decoration: InputDecoration(
-                      labelText: 'Password',
-                      hintText: 'eg. Kofi Osei',
-                      border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0))
-                    ),
-                      keyboardType: TextInputType.text,
-                    ),
-                  ),
-                  Container(
-                    width: width * 0.8,
-                    padding: EdgeInsets.only(top:20.0, bottom: 40.0),
-                    child: TextField(
-                      controller: password2,
-                      decoration: InputDecoration(
-                      labelText: 'Confirm Password',
-                      hintText: 'eg. Kofi Osei',
-                      border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0))
-                    ),
-                      keyboardType: TextInputType.text,
-                    ),
-                  ),
+                  WelcomeTextField(controller: email,hint: 'eg. Kofi Osei',text: 'Full Name'),
+                  WelcomeTextField(controller: email,hint: 'eg. kofiosei@gmail.com',text: 'Email'),
+                  WelcomeTextField(controller: password1,hint: 'eg. Kofi Osei',text: 'Password'),
+                  WelcomeTextField(controller: password2,hint: 'eg. Kofi Osei',text: 'Confirm Password'),
                   Container(
                     width: width * 0.5,
                     
                     alignment: Alignment.center,
                     padding: EdgeInsets.symmetric(horizontal: width * 0.075),
-                    margin: EdgeInsets.only(left: width * 0.05, right: width * 0.05),
+                    margin: EdgeInsets.only(left: width * 0.05, right: width * 0.05, top: 40),
                     decoration: BoxDecoration(
                         border: Border.all(
                             color: Color(0xffA9ADAF),
@@ -182,6 +132,39 @@ class _SignupPageState extends State<SignupPage> {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+
+class WelcomeTextField extends StatefulWidget {
+  final String text;
+  final String hint;
+  final controller;
+
+  const WelcomeTextField({Key key, this.text, this.hint, this.controller}) : super(key: key);
+  @override
+  _WelcomeTextFieldState createState() => _WelcomeTextFieldState();
+}
+
+class _WelcomeTextFieldState extends State<WelcomeTextField> {
+  @override
+  Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+    return Container(
+      width: width * 0.8,
+      padding: EdgeInsets.only(top:20.0),
+      child: TextField(
+        controller: widget.controller,
+        decoration: InputDecoration(
+            labelText: widget.text,
+            hintText: widget.hint,
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10.0))
+        ),
+        keyboardType: TextInputType.text,
       ),
     );
   }
